@@ -2,7 +2,7 @@
 
 public class VoiceOverTrigger : MonoBehaviour
 {
-    [SerializeField] private AudioSource voAudioSource;
+    [SerializeField] private AudioClip clip;
     private bool triggered;
 
     private void OnTriggerEnter(Collider other)
@@ -10,7 +10,7 @@ public class VoiceOverTrigger : MonoBehaviour
         if (other.CompareTag("Player") && !triggered)
         {
             triggered = true;
-            voAudioSource.Play();
+            AudioManager.Instance?.PlayVO(clip);
         }
     }
 }

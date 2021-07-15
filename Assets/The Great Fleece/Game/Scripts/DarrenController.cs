@@ -7,6 +7,8 @@ public class DarrenController : MonoBehaviour
     [SerializeField] private Camera controllerCamera;       // The camera currently used to access ScreenPointToRay
     [SerializeField] private NavMeshAgent navAgent;         // The agent to move the GameObject
 
+    [SerializeField] private ClickRipple clickRipple;
+
     [SerializeField] private Animator darrenAnimator;
     [SerializeField] private string animatorControllerSpeed;
     [SerializeField] private string animatorCoinThrow;
@@ -26,6 +28,8 @@ public class DarrenController : MonoBehaviour
             {
                 // Set Agent Destination to the Hit Point position
                 navAgent.SetDestination(hit.point);
+
+                clickRipple.StartRipple(hit.point);
             }
         }
 
